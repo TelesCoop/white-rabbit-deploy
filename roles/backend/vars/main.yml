@@ -1,0 +1,7 @@
+---
+
+venv:
+  path: /usr/local/telescooop/{{ project_slug }}/backend/venv
+
+backend_path: /telescoop/{{ project_slug}}/backend
+supervisor_conf: /etc/supervisor/conf.d

@@ -1,0 +1,12 @@
+---
+
+public_hostname: app.green-menu.fr
+other_public_hostname: green-menu.telescoop.fr
+project_slug: green-menu
+main_user: green-menu
+django_project_name: green_menu_back
+backend_repo: git@gitlab.com:telescoop/green-menu/green-menu-back.git
+frontend_repo: git@gitlab.com:telescoop/green-menu/green-menu-front.git
+backend_application_port: 8064
+backend_static_path: /telescoop/{{ project_slug}}/backend_static
+identity_file_path: /home/ubuntu/.ssh/id_rsa

@@ -1,0 +1,44 @@
+{{ ansible_managed | comment }}
+
+upstream app_servers {
+  server 127.0.0.1:{{ backend_application_port }};
+}
+
+server {
+
+    listen 80;
+
+    server_name {{ public_hostname }} {{ other_public_hostname }};
+
+    access_log /var/log/nginx/access_{{ other_public_hostname.replace('.', '_') }}.log;
+    error_log /var/log/nginx/error_{{ other_public_hostname.replace('.', '_') }}.log;
+
+    # http://stackoverflow.com/questions/15238506/djangos-suspiciousoperation-invalid-http-host-header
+    # Deny illegal Host headers
+    if ($host !~* ^({{ public_hostname }}|{{ other_public_hostname }})$ ) {
+        return 444;
+    }
+
+    # backend static stuff
+    location /static  {
+        autoindex off;
+        alias {{ backend_static_path }};
+    }
+
+    {% for uri in server_uris_passed_to_backend %}
+        location /{{ uri }}/ {
+            proxy_pass         http://app_servers/;
+            proxy_redirect     off;
+            proxy_set_header   Host $host;
+            proxy_set_header   X-Real-IP $remote_addr;
+            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header   X-Forwarded-Host $server_name;
+        }
+    {% endfor %}
+
+    # send all the rest to the frontend
+    location / {
+        try_files $uri /index.html =404;
+        root {{ frontend_static_path }};
+    }
+}
