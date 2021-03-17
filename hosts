@@ -1,2 +1,2 @@
 [prod]
-green-menu.telescoop.fr:42722 ansible_user=ubuntu
+subdomain.my-website.com:my_ssh_port ansible_user=ubuntu

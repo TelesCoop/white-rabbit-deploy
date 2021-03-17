@@ -5,3 +5,10 @@ venv:
 
 backend_path: /telescoop/{{ project_slug}}/backend
 supervisor_conf: /etc/supervisor/conf.d
+
+backend_timeout: 30
+backend_workers: 1
+
+database_backup:
+  hour: 2
+  minute: 0
