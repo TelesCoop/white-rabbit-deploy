@@ -69,7 +69,8 @@ chaque commit.
   - les utilisateurs et leurs clés ssh publiques
 - générer des identifiants Mailgun, AWS S3 et Rollbar pour le projet.
 - créer un fichier `vault.key` avec le texte `CHANGE_ME`: `echo CHANGE_ME > new_vault.key`
-- modifier la clé du vault avec une clé générée aléatoirement :
+- modifier la clé du coffre-fort Ansible avec une clé générée aléatoirement :
+  - echo CHANGE_ME > vault.key  # CHANGE_ME est la clé actuelle du coffre-fort
   - `openssl rand -base64 40 > new_vault.key`
   - `ansible-vault rekey --new-vault-password-file new_vault.key  group_vars/all/cross_env_vault.yml`
   - `mv new_vault.key vault.key`
