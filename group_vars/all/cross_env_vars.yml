@@ -3,7 +3,7 @@
 support_mail_addr: contact@telescoop.fr
 
 sshd:
-  port: 22222
+  port: 42722
 
 users:
   root:

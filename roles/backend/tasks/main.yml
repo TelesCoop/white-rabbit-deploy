@@ -11,7 +11,7 @@
 - name: Create main user
   user:
     name: "{{ main_user }}"
-    uid: 1040
+    uid: "{{ main_user_uid }}"
 
 - name: Create directories and set permissions
   file:
@@ -50,8 +50,8 @@
   template:
     src: settings.ini.j2
     dest: "/etc/{{ organization_slug }}/{{ project_slug }}/settings.ini"
-    owner: green-menu
-    group: devops
+    owner: "{{ main_user }}"
+    group: telescoop-devops
     mode: 0660
 
 - name: Copy supervisord config
