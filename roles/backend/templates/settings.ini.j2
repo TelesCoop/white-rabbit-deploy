@@ -1,6 +1,6 @@
 [security]
 secret_key={{ vault_django_secret_key }}
-allowed_hosts={{ public_hostname }}, {{ other_public_hostname }}
+allowed_hosts={{ ", ".join(public_hostnames) }}
 
 [mail]
 api_key={{ vault_mailgun_api_key }}

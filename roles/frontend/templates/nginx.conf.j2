@@ -8,14 +8,14 @@ server {
 
     listen 80;
 
-    server_name {{ public_hostname }} {{ other_public_hostname }};
+    server_name {{ " ".join(public_hostnames) }}
 
-    access_log /var/log/nginx/access_{{ other_public_hostname.replace('.', '_') }}.log;
-    error_log /var/log/nginx/error_{{ other_public_hostname.replace('.', '_') }}.log;
+    access_log /var/log/nginx/access_{{ public_hostnames[0].replace('.', '_') }}.log;
+    error_log /var/log/nginx/error_{{ public_hostnames[0].replace('.', '_') }}.log;
 
     # http://stackoverflow.com/questions/15238506/djangos-suspiciousoperation-invalid-http-host-header
     # Deny illegal Host headers
-    if ($host !~* ^({{ public_hostname }}|{{ other_public_hostname }})$ ) {
+    if ($host !~* ^({{ "|".join(public_hostnames) }})$ ) {
         return 444;
     }
 
