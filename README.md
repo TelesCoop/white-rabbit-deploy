@@ -1,4 +1,5 @@
-# Template de mise en production et maintenance d'un site avec Stack Django Vue
+
+# Mise en production et maintenance avec Ansible d'un site avec Stack Django Vue
 
 ## Stack technique
 

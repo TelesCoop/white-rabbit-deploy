@@ -1,9 +1,11 @@
 ---
 
-venv:
-  path: /usr/local/telescooop/{{ project_slug }}/backend/venv
+var_log_path: /var/log/{{ organization_slug }}/{{ project_slug }}
 
-backend_path: /telescoop/{{ project_slug}}/backend
+venv:
+  path: /usr/local/{{ organization_slug }}/{{ project_slug }}/backend/venv
+
+backend_path: /{{ organization_slug }}/{{ project_slug}}/backend
 supervisor_conf: /etc/supervisor/conf.d
 
 backend_timeout: 30
