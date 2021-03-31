@@ -87,15 +87,10 @@ chaque commit.
   - les utilisateurs et leurs clés ssh publiques
 - vérifier les variables dans `roles/backend/vars/main.yml` et `roles/frontend/vars/main.yml`.
 - générer des identifiants Mailgun, AWS S3 et Rollbar pour le projet.
-- créer un fichier `vault.key` avec le texte `CHANGE_ME`: `echo CHANGE_ME > new_vault.key`
-- modifier la clé du coffre-fort Ansible avec une clé générée aléatoirement :
-  - echo CHANGE_ME > vault.key  # CHANGE_ME est la clé actuelle du coffre-fort
-  - `openssl rand -base64 40 > new_vault.key`
-  - `ansible-vault rekey --new-vault-password-file new_vault.key  group_vars/all/cross_env_vault.yml`
-  - `mv new_vault.key vault.key`
-  - `ansible-vault view group_vars/all/cross_env_vault.yml`
-  - sauvegarder cette clé en endroit sûr et la partager de manière sûre
-    avec les collègues
+- modifier la clé du coffre-fort Ansible avec une clé générée aléatoirement en
+  lançant `bash generate_vault_key_on_first_install.sh`. Cela crée un fichier
+  `vault.key` qui contient la clé du coffre-fort Ansible. Sauvegarder cette clé
+  en endroit sûr et la partager de manière sûre avec les collègues.
 - modifier les valeurs du vault: `ansible-vault edit group_vars/all/cross_env_vault.yml`
 
 ## TODO
