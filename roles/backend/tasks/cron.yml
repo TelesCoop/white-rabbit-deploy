@@ -1,9 +1,9 @@
 ---
 
-- name: "daily database backup"
+- name: "daily email reminders"
   cron:
     user: "{{ main_user }}"
-    name: "daily database backup"
-    hour: '{{ database_backup.hour }}'
-    minute: '{{ database_backup.minute }}'
-    job: "{{ venv.path }}/bin/python {{ backend_path }}/manage.py backup_db backup"
+    name: "daily email reminders"
+    hour: "9"
+    minute: "0"
+    job: "/usr/local/bin/{{ project_slug }}-ctl send_email_reminders"

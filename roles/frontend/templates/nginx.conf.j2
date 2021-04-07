@@ -1,6 +1,6 @@
 {{ ansible_managed | comment }}
 
-upstream app_servers {
+upstream app_servers_{{ project_slug }} {
   server 127.0.0.1:{{ backend_application_port }};
 }
 
@@ -8,7 +8,7 @@ server {
 
     listen 80;
 
-    server_name {{ " ".join(public_hostnames) }}
+    server_name {{ " ".join(public_hostnames) }};
 
     access_log /var/log/nginx/access_{{ public_hostnames[0].replace('.', '_') }}.log;
     error_log /var/log/nginx/error_{{ public_hostnames[0].replace('.', '_') }}.log;
@@ -26,7 +26,7 @@ server {
     }
 
     location / {
-        proxy_pass         http://app_servers/;
+        proxy_pass         http://app_servers_{{ project_slug }}/;
         proxy_redirect     off;
         proxy_set_header   Host $host;
         proxy_set_header   X-Real-IP $remote_addr;
