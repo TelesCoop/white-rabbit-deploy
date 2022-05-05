@@ -19,7 +19,7 @@ users:
       shell: /bin/bash
       pwd: "{{ vault_pwd_maxime_bellec }}"
       ssh_key: 'https://gitlab.com/maxbellec.keys'
-    - name: quentin.madura
+    - name: camille.legeron
       shell: /bin/bash
-      pwd: "{{ vault_pwd_quentin_madura }}"
-      ssh_key: 'https://gitlab.com/grimbsi.keys'
+      pwd: "{{ vault_pwd_camille_legeron }}"
+      ssh_key: 'https://gitlab.com/CamilleLegeron.keys'
