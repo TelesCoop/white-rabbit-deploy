@@ -7,8 +7,8 @@ main_user_uid: 1050  # must be unique for each project on the server
 public_hostnames:
   - "lapin-blanc.{{ organization_slug }}.fr"
 django_project_name: "{{ project_slug.replace('-', '_') }}"
-backend_repo: git@gitlab.com:telescoop-public/internal-tools/white-rabbit.git
+backend_repo: git@github.com:TelesCoop/white-rabbit.git
 backend_application_port: 8011
 backend_static_path: /{{ organization_slug }}/{{ project_slug}}/backend_static
-identity_file_path: /home/ubuntu/.ssh/id_rsa
+backend_identity_file_path: /home/{{ main_user }}/.ssh/id_ed25519_backend
 var_log_path: /var/log/{{ organization_slug }}/{{ project_slug }}
