@@ -128,4 +128,4 @@
     state: restarted
   when: clonecode.changed
 
-- include: cron.yml
+- import_tasks: cron.yml
