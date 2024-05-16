@@ -100,7 +100,7 @@
     dest: "{{ backend_path }}"
     key_file: "{{ backend_identity_file_path }}"
     force: true
-    version: master
+    version: feat/major-update-lb
     accept_hostkey: true
   become_user: "{{ main_user }}"
   register: clonecode

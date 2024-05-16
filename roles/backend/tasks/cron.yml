@@ -3,7 +3,14 @@
 - name: "daily email reminders"
   cron:
     user: "{{ main_user }}"
-    name: "daily email reminders"
+    name: "{{ project_slug }} daily email reminders"
     hour: "9"
     minute: "0"
     job: "/usr/local/bin/{{ project_slug }}-ctl send_email_reminders"
+
+- name: "hydrate cache"
+  cron:
+    user: "{{ main_user }}"
+    name: "{{ project_slug }} daily email reminders"
+    minute: "*/10"
+    job: "/usr/local/bin/{{ project_slug }}-ctl hydrate_cache"
