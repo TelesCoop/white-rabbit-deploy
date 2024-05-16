@@ -11,6 +11,6 @@
 - name: "hydrate cache"
   cron:
     user: "{{ main_user }}"
-    name: "{{ project_slug }} daily email reminders"
+    name: "{{ project_slug }} hydrate cache"
     minute: "*/10"
     job: "/usr/local/bin/{{ project_slug }}-ctl hydrate_cache"
