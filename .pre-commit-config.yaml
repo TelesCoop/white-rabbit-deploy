@@ -25,7 +25,6 @@ repos:
       - id: generic-en-dashes-forbid
       - id: generic-en-dashes-remove
       - id: ansible-lint
-      - id: jinja-lint
       - id: json-check-syntax
       - id: json-pretty-format
       - id: markdown-lint
@@ -46,3 +45,7 @@ repos:
         args:
           - --config-data
           - "{extends: default, rules: {document-start: disable, line-length: {max: 100}}}"
+  - repo: https://github.com/thibaudcolas/curlylint
+    rev: "v0.13.1"
+    hooks:
+      - id: curlylint
