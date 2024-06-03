@@ -3,9 +3,9 @@ environment_suffix: ""
 project_slug: "{{ base_project_slug }}{{ environment_suffix }}"
 
 public_hostnames:
-  - "preprod.lapin-blanc.{{ organization_slug }}.fr"
+  - lapin-blanc.telescoop.fr
 project_dir: "{{project_base_dir}}{{ environment_suffix }}"
 
-backend_branch: main
+backend_branch: master
 
 environment_name: production

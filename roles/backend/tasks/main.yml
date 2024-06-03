@@ -117,13 +117,6 @@
     cmd: "/usr/local/bin/{{ project_slug }}-ctl migrate"
   when: clonecode.changed or force_update is defined
 
-- name: create cache table
-  command:
-    cmd: >
-      /usr/local/bin/{{ project_slug }}-ctl createcachetable
-      && touch {{ backend_path }}/cache_table_created
-    creates: "{{ backend_path }}/cache_table_created"
-
 - name: collect backend static files
   command:
     cmd: "/usr/local/bin/{{ project_slug }}-ctl collectstatic --no-input"
