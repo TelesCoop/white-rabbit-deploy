@@ -51,7 +51,7 @@
     src: settings.ini.j2
     dest: "/etc/{{ organization_slug }}/{{ project_slug }}/backend-settings.ini"
     owner: "{{ main_user }}"
-    group: telescoop-devops
+    group: devops
     mode: 0660
 
 - name: Copy supervisord config
