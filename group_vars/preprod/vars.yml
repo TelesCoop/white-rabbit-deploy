@@ -6,6 +6,6 @@ public_hostnames:
   - preprod.lapin-blanc.telescoop.fr
 project_dir: "{{project_base_dir}}{{ environment_suffix }}"
 
-backend_branch: feat/maxime
+backend_branch: dev
 
 environment_name: preprod
