@@ -25,6 +25,11 @@ server {
         alias {{ backend_static_path }};
     }
 
+    # gzip compression
+    gzip on;
+    gzip_vary on;
+    gzip_types application/json application/javascript application/xml text/css text/javascript text/plain text/xml image/svg+xml;
+
     location / {
         proxy_pass         http://app_servers_{{ project_slug }}/;
         proxy_redirect     off;
