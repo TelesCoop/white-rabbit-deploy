@@ -34,6 +34,11 @@ server {
     gzip_types application/json application/javascript application/xml text/css text/javascript text/plain text/xml image/svg+xml;
 
     location / {
+        proxy_read_timeout {{ backend_timeout }};
+        proxy_connect_timeout {{ backend_timeout }};
+        proxy_send_timeout {{ backend_timeout }};
+        send_timeout {{ backend_timeout }};
+
         proxy_pass         http://app_servers_{{ project_slug }}/;
         proxy_redirect     off;
         proxy_set_header   Host $host;
