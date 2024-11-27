@@ -13,5 +13,5 @@
   cron:
     user: "{{ main_user }}"
     name: "{{ project_slug }} hydrate cache"
-    minute: "*/10"
+    minute: "*/5"
     job: "/usr/local/bin/{{ project_slug }}-ctl hydrate_cache"
