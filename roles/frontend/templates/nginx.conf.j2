@@ -28,6 +28,11 @@ server {
         alias {{ backend_static_path }};
     }
 
+    include mime.types;
+    types {
+        application/javascript js mjs;
+    }
+
     # gzip compression
     gzip on;
     gzip_vary on;
