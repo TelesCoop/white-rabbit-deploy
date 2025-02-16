@@ -11,3 +11,4 @@ backend_repo: git@github.com:TelesCoop/white-rabbit.git
 backend_static_path: /{{ organization_slug }}/{{ project_slug}}/backend_static
 backend_identity_file_path: /home/{{ main_user }}/.ssh/id_ed25519_backend
 var_log_path: /var/log/{{ organization_slug }}/{{ project_slug }}
+backend_timeout: 120
