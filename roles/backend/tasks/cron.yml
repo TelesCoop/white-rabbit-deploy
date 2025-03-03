@@ -15,3 +15,12 @@
     name: "{{ project_slug }} hydrate cache"
     minute: "*/5"
     job: "/usr/local/bin/{{ project_slug }}-ctl hydrate_cache"
+
+- name: "daily database backup"
+  cron:
+    user: "{{ main_user }}"
+    name: "{{ project_slug }} daily database backup"
+    day: "*"
+    hour: "3"
+    job: "/usr/local/bin/{{ project_slug }}-ctl backup_db backup"
+  when: group_names[0] == 'prod'
